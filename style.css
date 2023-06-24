@@ -1,0 +1,194 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --text-color: rgba(255, 255, 255, 1);
+  --stroke-color: rgba(255, 255, 255, 0.5);
+  --surface-color: rgba(255, 255, 255, 0.1);
+  --surface-color-hover: rgba(255, 255, 255, 0.05);
+  --highlight-color: rgba(255, 255, 255, 0.2);
+  --toggle-handle-color: #ffffff;
+  --toggle-img: url(./assets/moon-stars.svg);
+  --bg-url: url(./assets/bg-mobile.jpg);
+}
+
+.light {
+  --text-color: rgba(0, 0, 0, 1);
+  --stroke-color: rgba(0, 0, 0, 0.5);
+  --surface-color: rgba(0, 0, 0, 0.05);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --highlight-color: rgba(0, 0, 0, 0.1);
+  --toggle-img: url(./assets/sun.svg);
+  --bg-url: url(./assets/bg-mobile-light.jpg);
+}
+
+@font-face {
+  font-family: "Inter";
+  src: local("Inter Regular"),
+    url("./public/fonts/Inter-Regular.ttf") format("ttf");
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: local("Inter Medium"),
+    url("./public/fonts/Inter-Medium.ttf") format("ttf");
+  font-style: bold;
+  font-weight: 500;
+}
+
+body {
+  background: var(--bg-url) no-repeat top center/cover;
+}
+
+body * {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  color: var(--text-color);
+}
+
+#container {
+  width: 360px;
+  margin: 3.5rem auto 0;
+  padding: 0 1.5rem;
+}
+
+#profile {
+  text-align: center;
+  padding: 1.5rem 0;
+}
+
+#profile img {
+  width: 112px;
+}
+
+#profile p {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+#switch {
+  width: 4rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  position: relative;
+  cursor: pointer;
+}
+
+#switch button {
+  cursor: pointer;
+  position: absolute;
+  z-index: 1;
+  box-shadow: 0px 2px 8px 0px var(--highlight-color);
+  background: var(--toggle-handle-color) var(--toggle-img) no-repeat center;
+  width: 2rem;
+  height: 2rem;
+  border: 0;
+  border-radius: 50%;
+  left: 0;
+  outline: 0.4rem solid transparent;
+  transition: outline 0.3s;
+  animation: slide-back 0.2s;
+}
+
+.light #switch button {
+  animation: slide 0.2s forwards;
+}
+
+#switch span {
+  display: block;
+  border-radius: 100vmax;
+  width: 4rem;
+  height: 1.5rem;
+  background-color: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+#switch:hover button {
+  outline: 0.4rem solid var(--highlight-color);
+}
+
+ul#btn {
+  list-style: none;
+  padding: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+ul#btn li a {
+  text-decoration: none;
+  border: 1px solid var(--stroke-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 1.5rem;
+  background-color: var(--surface-color);
+  border-radius: 0.5rem;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  transition: background 0.3s;
+}
+ul#btn li a:hover {
+  background-color: var(--surface-color-hover);
+  border: 1.5px solid var(--text-color);
+}
+
+#social {
+  display: flex;
+  gap: 1rem;
+  padding: 1.5rem 0;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+}
+
+#social ion-icon {
+  border-radius: 50%;
+  padding: 0.5rem;
+  transition: background 0.3s;
+}
+
+#social ion-icon:hover {
+  background-color: var(--highlight-color);
+  padding: 0.5rem;
+}
+
+footer {
+  font-size: 0.875rem;
+  padding: 1.5rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+}
+
+@keyframes slide {
+  from {
+    left: 0;
+  }
+  to {
+    left: 50%;
+  }
+}
+
+@keyframes slide-back {
+  from {
+    left: 50%;
+  }
+  to {
+    left: 0;
+  }
+}
