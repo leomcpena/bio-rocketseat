@@ -59,7 +59,7 @@ body * {
   max-width: 588px;
   min-width: 300px;
   margin: 0 auto;
-  padding: 3.5rem 1.5rem 0;
+  padding: 0 1.5rem;
 }
 
 #profile {
@@ -203,4 +203,6 @@ footer {
   .light {
     --bg-url: url(./assets/bg-desktop-light.jpg);
   }
-}
+  #container {
+    padding: 3.5rem 1.5rem 0;
+  }
