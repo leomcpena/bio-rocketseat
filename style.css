@@ -45,6 +45,7 @@
 
 body {
   background: var(--bg-url) no-repeat top center/cover;
+  height: 100vh;
 }
 
 body * {
@@ -191,5 +192,14 @@ footer {
   }
   to {
     left: 0;
+  }
+}
+
+@media (min-width: 769) {
+  :root {
+    --bg-url: url(./assets/bg-desktop.jpg);
+  }
+  .light {
+    --bg-url: url(./assets/bg-desktop-light.jpg);
   }
 }
